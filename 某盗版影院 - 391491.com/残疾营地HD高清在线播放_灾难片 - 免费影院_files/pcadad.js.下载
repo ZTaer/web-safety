@@ -1,0 +1,7 @@
+document.writeln("<ul class=\'pc-ul\'>");
+document.writeln("			<li><a href=\'http://www.wawa321.com\' title=\'广告\' target=\'_blank\'>==王者荣耀2020透视自瞄==</a></li>");
+document.writeln("			<li><a href=\'http://www.haozhouyi.com\' title=\'广告\' target=\'_blank\'><font color=\'#33CC00\'>==测测2020你能赚多少钱==</font></a></li>");
+document.writeln("			<li><a href=\'http://www.hanmanquanji.club\' title=\'广告\' target=\'_blank\'><font color=\'#B43104\'>==韩国污漫全集下载网==</font></a></li>");
+document.writeln("			<li><a href=\'http://www.shibenshu.com/?page_id=5\' title=\'野画集\' target=\'_blank\'><font color=\'#086A87\'>==野画集==</font></a></li>");
+document.writeln("			<li><a href=\'http://115vipyy.club\' title=\'看片老司机专属\' target=\'_blank\'><font color=\'#B404AE\'>==看片老司机专属==</font></a></li>");
+document.writeln("		</ul>");

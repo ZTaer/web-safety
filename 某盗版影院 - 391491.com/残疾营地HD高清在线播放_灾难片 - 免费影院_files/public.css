@@ -1,0 +1,97 @@
+﻿body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin: 0; padding: 0; }
+body,
+button,
+input,
+select,
+textarea,
+html body {
+    font-family: Arial, Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", STHeiti, SimSun;
+    padding: 0;margin: 0;
+}
+body{font-size: 0.26rem;}
+h1, h2, h3, h4, h5, h6, button, input, select, textarea { font-size: 100%;font-weight: normal;}
+ul, ol, li, dl, dt, dd {
+	list-style: none;
+}
+a{text-decoration: none;color:#0babfe}
+*{padding: 0;margin: 0;outline: none;}
+.bgf5{background: #F5F5F5;}
+.bg-white{background: #FFFFFF;}
+.bg_hui{background: #F5F5F5;height: 0.2rem}
+.clearboth{clear: both;}
+i,cite{font-style: normal;}
+button{outline: none;}
+
+.mt0{margin-top: 0;}
+.mr0{margin-right: 0}
+.m20{margin: 0.2rem}
+.mr2{margin-right: 0.2rem}
+.mt2{margin-top: 0.2rem!important;}
+.mt5{margin-top: 0.5rem!important;}
+.mt8{margin-top: 0.8rem!important;}
+.mb5{margin-bottom: 0.7rem;}
+.mb4{margin-bottom: 0.4rem}
+.mt4{margin-top: 0.4rem}
+.mt13{margin-top: 1.3rem!important;}
+
+.w90{width: 90%}
+
+.pl3{padding: 0 0.3rem}
+
+.f24{font-size: 0.24rem}
+/*颜色*/
+.cl_red{color:#ff3333!important;}
+.cl_yellow{color:#ff7800!important;}
+.cl_yell{color: #fad402}
+.cl_blue{color: #53bcfb}
+.cl_blues{color:#6695c0}
+.cl_green{color:#7c9fbf}
+.cl_gray{color:#999}
+.cl_dgray{color:#666}
+.cl_black{color:#333}
+.cl_orange{color: #f76503}
+
+.padding0{padding: 0}
+
+.fl_l{float: left}
+.fl_r{float: right!important;}
+
+.font_30{font-size: 0.3rem}
+
+.h40{height: 3rem}
+.bor_none{border-right: none!important;}
+
+.text-ellipsis{overflow: hidden;text-overflow: ellipsis;white-space: nowrap}
+button{border: none;}
+.clear{clear: both}
+
+/*暂无数据*/
+.data_null{background: url(../images/data_null.png) no-repeat center; background-size: 1.5rem; width: 4rem; margin: 0 auto; padding-top: 3rem; text-align: center; color: #999;}
+
+
+/*不同手机适配*/
+@media screen and (max-width:359px) and (min-width:320px) {
+    .order_lists .friend_link, .order_lists .word, .order_lists .pic, .order_lists .package { width: 0.6rem; height: 0.35rem; line-height: 0.35rem;
+}
+
+@media screen and (max-width:413px) and (min-width:375px) {
+    .sell_index ss { left: 0.3rem; font-size: 0.1rem; margin-top: 0.13rem; height: 0.3rem; line-height: 0.3rem;}
+    .choose_detail ul li div ss{left: 0.6rem}
+    .choose_detail ul li div i, .sell_index i.safe { background-size: 0.6rem; margin-right: 0.1rem; padding-left: 0.6rem; font-size: 0.1rem; }
+}
+
+@media screen and (max-width:639px)  and (min-width:414px){
+    .sell_index ss { left: 0.3rem; font-size: 0.1rem; margin-top: 0.13rem; height: 0.3rem; line-height: 0.3rem;}
+    .choose_detail ul li div ss{left: 0.5rem}
+    .choose_detail ul li div i, .sell_index i.safe { background-size: 0.5rem; margin-right: 0.1rem; padding-left: 0.6rem; font-size: 0.1rem; }
+}
+
+  /*iPhoneX的适配*/
+ @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+     .invite_codes{bottom: 5.2rem;}
+     .mt4{bottom: 1.8rem}
+ }
+
+}
+.dpinline{display: inline;}
+

@@ -1,0 +1,383 @@
+
+var flowExchange = window.location.protocol.split(":")[0];
+var http = flowExchange === "https"?'wss':'ws';
+var websocketServer = http+'://www.cp66607.com/wsapp';
+var connopen;
+var api_url_host = "http://h5.2898.com";
+//var api_url_host = "http://h5v2.0.2898";
+
+var preg = {//正则表达式
+    email:/^([\w-*\.*]+@[\w-?]+[\.\w{2,}]+)/,//邮箱正则
+    mobile:/^(1[3-9]\d{9}$)/ ,//手机号码正则
+    web:/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/,
+    wurl:/^((https?|ftp|news|http):\/\/)?([0-9a-z_-]+\.)+[a-z]{2,6}$/,
+    qq:/^[1-9][0-9]{4,}$/,  //qq正则
+    toolurl:/^([0-9a-z_-]+\.)+[a-z]{2,6}$/  //站长工具
+}
+// 滚动函数 往上滚和往左滚
+	// opts = {go: 'left', obj: $('.scroll_left'), cons: 5, goTime: 1000, stopTime: 2000, dots: $('.con-dots span')}
+	// go:滚动方向top/left  obj:滚动的容器，有超出隐藏的  cons:容器看到的个数  goTime:滚动的时间，毫秒  stopTime:停止的时间
+	// dots:滚动的序号按钮，所有的，要设置属性index从0开始（这个参数可不传）
+	// afterfun:滚动后的函数调用，参数为当前的索引  beforefun:滚动前的函数调用，参数是索引 （这两个函数可不传）
+    function scrollFun(opts, afterfun, beforefun){
+        var itemNum = opts.obj.find('li').length;
+        var conH = opts.obj.innerHeight();
+        var conW = opts.obj.innerWidth();
+        var itemH = conH/opts.cons;
+        var itemW = conW/opts.cons;
+        var cur = 1;
+        //勿删 删掉下面这句会影响滚的时候卡顿
+        opts.obj.find('li').clone().appendTo(opts.obj.find('ul')).attr('mark', 'clone');
+
+        // 上滚
+        var toTop = function(){
+        	if(typeof beforefun == 'function'){
+        		beforefun(cur == itemNum? 0: cur);
+        	}
+            opts.obj.stop(true, true).animate({
+                scrollTop: itemH*cur+'px'
+            }, opts.goTime, function(){
+            	if(typeof afterfun == 'function'){
+            		afterfun(cur == itemNum? 0: cur);
+            	}
+            	if(opts.dots)
+            	opts.dots.eq(cur == itemNum? 0: cur).addClass('active').siblings().removeClass('active');
+                cur++;
+                if(cur > itemNum){
+                    opts.obj.stop(true, true).scrollTop(0);
+                    cur = 1;
+                }
+            })
+        }
+        if(opts.go == 'top'){
+        	opts.obj.scrollTop(0);
+            var timer = setInterval(toTop, opts.stopTime)
+            opts.obj.on('mouseover', function(){
+            	clearInterval(timer);
+            })
+            opts.obj.on('mouseout', function(){
+            	timer = setInterval(toTop, opts.stopTime)
+            })
+            if(opts.dots){
+            	opts.dots.on('mouseover', function(){
+	            	clearInterval(timer);
+	            	var index = $(this).attr('index');
+	            	cur = index == 0? itemNum : index;
+	            	toTop();
+	            })
+	            opts.dots.on('mouseout', function(){
+	            	timer = setInterval(toTop, opts.stopTime)
+	            })
+            }
+        }
+
+
+    }
+
+//返回
+
+function goBack(url)
+{
+    if(url){
+        var su = url.substr(0,6);
+        if(su!='/html5')url = '/html5/'+url;
+        window.location.href = url;
+        return false;
+    }
+    if(window.history.length<=1){
+        goHref('/html5/home/index')
+    }else{
+        if(window.location.href == document.referrer){
+            window.history.go(-1);
+        }else{
+             window.location.href=document.referrer;
+        }
+
+    }
+}
+function goHref(url){
+    return goBack(url);
+    //if(!url)return false;
+    //window.location.href = url;
+}
+
+
+function noLogin(){
+    var token = getToken();
+    if(!token){
+       return goHref('/html5/login/index');
+    }
+    return token;
+}
+
+function setLocalStorage(key,value,time){
+    try{
+        if(value == null){
+            window.localStorage.removeItem(key);
+            return true;
+        }
+        var curTime = 0;
+        if(time>0){
+            time = time * 1000;
+            curTime = new Date().getTime()*1+time;
+        }
+        window.localStorage.setItem(key,JSON.stringify({data:value,time:curTime}));
+        return true;
+    } catch (e){
+        //如写入发生错误，那么清空缓存
+        window.localStorage.clear();
+        alert('存储数据失败，请确认有权限写入本地数据(无痕浏览可能会出现这个错误)');
+        return false;
+    }
+}
+function getLocalStorage(key) {
+    var data = localStorage.getItem(key);
+    var dataObj = JSON.parse(data);
+    if(!dataObj)return false;
+    if(!dataObj.time)return dataObj.data;
+    if (new Date().getTime() > dataObj.time) {
+        window.localStorage.removeItem(key);
+        return false;
+    } else {
+        return dataObj.data;
+    }
+}
+
+var parameter = function(obj){
+    if(!obj)return '';
+    var str = '?';
+    var t = typeof obj;
+    if(t == 'object'){
+        var strArr = [];
+        for (var o in obj){
+            if(obj[o]){
+                if(typeof obj[o] == 'object'){
+                    var values = obj[o].join(',');
+                }else{
+                    var values = encodeURIComponent(obj[o]);
+                }
+                strArr.push(encodeURIComponent(o) + "=" + values);
+            }
+        }
+        str += strArr.join('&');
+    }
+    if(t == 'string'){
+        str += obj
+    }
+    if(str=='?')return '';
+    return str;
+}
+//移除数组某个元素
+Array.prototype.remove = function(val) {
+    var index = this.indexOf(val);
+    if (index > -1) {
+        this.splice(index, 1);
+    }
+};
+function in_array(search,array){
+    for(var i in array){
+        if(array[i]==search){
+            return true;
+        }
+    }
+    return false;
+}
+
+/*参数调用模板�*/
+(function ($) {
+    $.getUrlParam = function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURIComponent(r[2]); return null;
+    }
+})(jQuery);
+
+var loginKey = 'td7Gb4';
+function getToken(t){
+    var token = getLocalStorage(loginKey);
+    if(t && token){
+        goBack()
+        //window.location.href = referer;
+        return false;
+    }
+    return token;
+}
+function setToken(data,keepLogin){
+    var ti = keepLogin?365*24*60*60:10*60*60;
+    return setLocalStorage(loginKey,data,ti);
+}
+function removeToken(){
+    return setLocalStorage(loginKey,null);
+}
+
+function getRedNotice(){
+    var token = getToken();
+    var sign = ''
+    if(token) {
+        var  sign = token.token;
+    }else{
+        return;
+    }
+    $.ajax({
+        beforeSend: function(request) {
+            request.setRequestHeader("token",sign);
+        },
+        url:api_url_host+'/api/Account/MessageCount',
+        dateType:'jsonp',
+        success:function(data){
+            if(data.statusCode==200){
+                $('.msgNoticRed').show();
+                var i = data.data[0];
+                var cnt = data.data[1];
+                for(var j=0; j<cnt.length;j++){
+                    var rr = '@@'+cnt[j];
+                    var rid = getLocalStorage('newsreadId');
+                    if(rid==false)rid='';
+                    if(rid.indexOf(rr)==-1){
+                        i++;
+                    }
+                }
+                if(i>99){
+                    i='99+'
+                }
+                $('.msgNoticRed').html(i)
+            }
+        }
+    })
+}
+setTimeout(function(){
+    getRedNotice();
+},1000);
+
+function clearNoNum(obj){
+    obj.value = obj.value.replace(/[^\d.]/g,"");  //清除“数字”和“.”以外的字符
+    obj.value = obj.value.replace(/\.{2,}/g,"."); //只保留第一个. 清除多余的
+    obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+    obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');//只能输入两个小数
+    if(obj.value.indexOf(".")< 0 && obj.value !=""){//以上已经过滤，此处控制的是如果没有小数点，首位不能为类似于 01、02的金额
+        obj.value= parseFloat(obj.value);
+    }
+}
+//判断输入的链接地址是否合法
+function checkSetLink(url){
+    if(!url)return false;
+    var http = url.substr(0,7);
+   return (http=='http://' || http=='https:/')
+}
+
+function staticHost(url){
+    if(!url)return;
+    var url_add=url.slice(0,1);
+    if(url_add=='/'){
+        return '//cdn.2898.com'+url
+    }else{
+        return '//cdn.2898.com/'+url
+    }
+}
+
+//时间转成年-月-日格式
+Date.prototype.format = function (fmt) { //author: meizz
+    var o = {
+        "M+": this.getMonth() + 1, //月份
+        "d+": this.getDate(), //日
+        "h+": this.getHours(), //小时
+        "m+": this.getMinutes(), //分
+        "s+": this.getSeconds(), //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        "S": this.getMilliseconds() //毫秒
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
+
+
+// 字符串超出截断加省略号
+function cutStr(str, len){
+   if(str.length*2 <= len) {
+      return str;
+   }
+
+   var strlen = 0;
+   var newstr = '';
+   for(var i = 0;i < str.length; i++) {
+      newstr = newstr + str.charAt(i);
+
+      if (str.charCodeAt(i) > 128) {
+          strlen = strlen + 2;
+          if(strlen >= len){
+             return newstr.substring(0,newstr.length-1) + '...';
+          }
+      } else {
+          strlen = strlen + 1;
+          if(strlen >= len){
+             return newstr.substring(0,newstr.length-2) + '...';
+          }
+      }
+   }
+   return newstr;
+}
+// 提示消息
+var msg = {
+    addCart: '已成功加入购物车',
+    buysuccess: '购买成功',
+    delsuccess: '删除成功',
+}
+function getCookie(c_name) {
+    var c_start = '';
+    if (document.cookie.length>0)
+    {
+        c_start=document.cookie.indexOf(c_name + "=");
+        if (c_start!=-1)
+        {
+            c_start=c_start + c_name.length+1
+            c_end=document.cookie.indexOf(";",c_start)
+            if (c_end==-1) c_end=document.cookie.length
+            return unescape(document.cookie.substring(c_start,c_end))
+        }
+    }
+    return c_start;
+}
+
+function setCookie(name, value,time)
+{
+    //设置名称为name,值为value的Cookie
+    if(!time)time = 30*60*1000;
+    var expdate = new Date();   //初始化时间
+    expdate.setTime(expdate.getTime() + time);   //时间
+    document.cookie = name+"="+value+";expires="+expdate.toGMTString()+";path=/";
+    //即document.cookie= name+"="+value+";path=/";   时间可以不要，但路径(path)必须要填写，因为JS的默认路径是当前页，如果不填，此cookie只在当前页面生效！~
+}
+
+function getTimeInfo(time){
+    var t
+    if(time){
+        t = time
+    }else{
+        t = new Date()
+    }
+    var obj = {}
+    obj.year = new Date(t).getFullYear()
+    obj.month = new Date(t).getMonth();
+    obj.day = new Date(t).getDate()
+
+    return obj
+}
+
+// time:日期   timeLength :时间间隔 （天）
+function setDate(time,timeLength){
+    if(timeLength){
+        var endTime = new Date(time).getTime() + 24*60*60*1000 * timeLength
+        return timeLength > 0 ? [getTimeInfo(time),getTimeInfo(endTime)]:[getTimeInfo(endTime),getTimeInfo(time)]
+    }else{
+        if(time ){
+            return getTimeInfo(time)
+        }else{
+            return getTimeInfo()
+        }
+    }
+
+}
+var bottomyear = setDate().year
+$(function(){$('.bottom-info ss').html(bottomyear)})

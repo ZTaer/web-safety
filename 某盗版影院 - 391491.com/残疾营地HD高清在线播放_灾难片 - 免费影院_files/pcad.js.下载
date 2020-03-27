@@ -1,0 +1,12 @@
+document.writeln("<ul class=\'pc-ul\'>");
+document.writeln("			<li><a href=\'https://www.shouzhuanwu.cn/app/12.html\' title=\'iMoney爱盈利\' target=\'_blank\'>iMoney,苹果手机首选试玩平台</a></li>");
+document.writeln("			<li><a href=\'https://www.shouzhuanwu.cn/app/18.html\' title=\'蝉试客，赚钱任务多 一元提现\' target=\'_blank\'><font color=\'#33CC00\'>==蝉试客，赚钱任务多 随时提现==</font></a></li>");
+document.writeln("			<li><a href=\'https://www.shouzhuanwu.cn/app/22.html\' title=\'今日赚\' target=\'_blank\'><font color=\'#B43104\'>==今日赚，每天赚点零花钱==</font></a></li>");
+document.writeln("			<li><a href=\'https://www.shouzhuanwu.cn/app/14.html\' title=\'钱咖\' target=\'_blank\'><font color=\'#086A87\'>==钱咖，试玩赚钱单价最高平台==</font></a></li>");
+document.writeln("			<li><a href=\'https://www.shouzhuanwu.cn/app/46.html\' title=\'懒猫试玩\' target=\'_blank\'><font color=\'#B404AE\'>懒猫试玩，无需首次的试玩平台</font></a></li>");
+document.writeln("			<li><a href=\'https://www.shouzhuanwu.cn/' title=\'手机赚钱\' target=\'_blank\'><font color=\'#6A0888\'>==手机赚钱？点我就够了==</font></a></li>");
+document.writeln("			<li><a href=\'https://www.shouzhuanwu.cn/app/29.html\' title=\'==火箭试玩==\' target=\'_blank\'><font color=\'#DF013A\'>火箭试玩,大量优质应用试玩平台</font></a></li>");
+document.writeln("			<li><a href=\'https://www.shouzhuanwu.cn/app/20.html\' title=\'==应用试客==\' target=\'_blank\'><font color=\'#FF0000\'>==应用试客，8元即可提现==</font></a></li>");
+document.writeln("			<li><a href=\'https://www.shouzhuanwu.cn/app/27.html\' title=\'==小鱼赚钱==\' target=\'_blank\'><font color=\'#0101DF\'>小鱼赚钱，最靠谱的手机赚钱平台</font></a></li>");
+document.writeln("			<li><a href=\'https://www.shouzhuanwu.cn/app/17.html\' title=\'==钱脉试玩==\' target=\'_blank\'><font color=\'#088A85\'>==钱脉试玩。5元提现秒到平台==</font></a></li>");
+document.writeln("		</ul>");
