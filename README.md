@@ -17,4 +17,5 @@
                 a) 无法下载页面，以及无法调试页面: 
                     1. 原理: 检测web页面窗口大小变化，一旦发生变化则关闭页面
                     2. 破解: 在加载网页之前，就启动调试窗口，然后在访问web链接，即可调试页面
+                    3. 改进: 建议使用window.screen.availHeight/window.screen.availWidth来检测窗口变化
 </pre>
