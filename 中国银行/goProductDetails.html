@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<meta name="renderer" content="webkit"> <!-- 360浏览器使用极速内核 -->
+<link rel="shortcut icon" type="image/x-icon" href="./apply/images/pc/logo_ico.ico">
+<link rel="Bookmark" href="./apply/images/pc/logo_ico.ico">
+
+<title>中国银行信用卡</title>
+<!--% CSS 开始加载 %-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="./apply/widgets/bootstrap/ie/css/bootstrap-ie7-compatible.css" />
+<link rel="stylesheet" type="text/css" href="./apply/widgets/bootstrap/ie/css/bootstrap-ie7.css" />
+<![endif]-->
+<link href="./apply/css/pc/head.css" rel="stylesheet" />
+<link href="./apply/widgets/bootstrap/css/jquery.fancybox.css" rel="stylesheet" />
+<!--[if gte IE 8]>
+<link rel="stylesheet" href="./apply/widgets/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="./apply/widgets/bootstrap/css/bootstrap-bank-theme.css" />
+<![endif]-->
+<!--[if !IE]><!-->
+<link rel="stylesheet" href="./apply/widgets/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="./apply/widgets/bootstrap/css/bootstrap-bank-theme.css" />
+<!--<![endif]-->
+<!--% CSS 加载结束 %-->
+
+<!--% JS 开始加载 %-->
+<!--[if lte IE 9]>
+<script src="./apply/js/common/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="./apply/widgets/bootstrap/js/html5shiv.js" type="text/javascript"></script>
+<script src="./apply/widgets/bootstrap/js/respond.js" type="text/javascript"></script>
+<script src="./apply/widgets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<![endif]-->
+<!--[if gt IE 9]>
+<script src="./apply/js/common/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+<script src="./apply/widgets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<![endif]-->
+<!--[if !IE]><!-->
+<script src="./apply/js/common/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+<script src="./apply/js/common/jquery/jquery.cookie.js" type="text/javascript" ></script>
+<script src="./apply/widgets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<!--<![endif]-->
+<!--[if lte IE 6]>
+<script type="text/javascript" src="./apply/widgets/bootstrap/ie/js/bootstrap-ie.js"></script>
+<![endif]-->
+<!--%校验控件 %-->
+<script type="text/javascript" src="./apply/js/common/validate/jquery-html5Validate-pc.js"></script>
+<script type="text/javascript" src="./apply/js/common/validate/appi-validate.js"></script>
+<!--%日期控件 %-->
+<script src="./apply/widgets/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<!--%公共部分%-->
+<script src="./apply/js/common/validate/jquery-html5Validate-pc.js" type="text/javascript"></script>
+<script src="./apply/js/modules/cardapply/pc/common.js" type="text/javascript"></script>
+<!--% JS 加载结束 %-->
+<script type="text/javascript">
+(function ($) {
+  $(document).ready(function() {
+    if ($.isFunction($.bootstrapIE6)) $.bootstrapIE6($(document));
+  });
+})(jQuery);
+</script>
+</head>
+<body>
+<!--top start-->
+<div class="container">
+	<div class="common_header">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-1 col-sm-6 col-xs-9">
+				<a class="index_logo" href="./apply/pc/index"><img src="./apply/images/pc/logo.png" /></a>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-3 common_right">
+				<a class="pull-right" href="./apply/pc/index">返回首页<img alt="" src="./apply/images/pc/red_arrow.png"></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="common_box"></div>
+<!--top end-->
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中国银行信用卡在线申请</title>
+<link href="./apply/css/pc/productView.css" rel="stylesheet" />
+<link href="./apply/css/pc/jquery-labelauty.css" rel="stylesheet" />
+<script src="./apply/js/modules/cardapply/pc/forbidden.js" type="text/javascript"></script>
+<script type="text/javascript" src="./apply/js/modules/cardapply/pc/productConfirm.js"></script>
+
+<script type="text/javascript">
+var propList = "[com.boc.modules.cardapply.model.Product@ba729efb]";
+//var type="";
+
+$(function(){
+	/* if(type=="C"){
+		appiIsVirtualCardA("#appiIsVirtualCardA1","#virtualChannelA1");
+		$("#appiIsVirtualCard1").show();
+		$("#imgr1").show();
+		$("#imgr2").hide();
+		$("#imgr3").hide();
+	 	$(".fruit").show();
+	 	$(".circle").removeClass("active");
+	    $("#adivorder1").children("span").addClass("active");
+	    $("#aorder3").hide();
+	    $("#aorder2").hide();
+	    $("#aorder1").fadeIn();
+	    $("#appiType").val($("#masterOrSubFlagA1").val());
+		$("#appiTypeCode").val($("#newInTypeCodeA1").val());
+		$("#appiMcVersion").val($("#formVersionA1").val());
+	 		for (var i = 1; i < 4; i++) {
+	 			$("#showDescribe"+(i)).prepend($("#productDescribe"+(i)).val());
+			}
+
+	}else{
+		$("#appiType").val($("#masterOrSubFlagA1").val());
+		$("#appiTypeCode").val($("#newInTypeCodeA1").val());
+		$("#appiMcVersion").val($("#formVersionA1").val());
+		appiIsVirtualCardA("#appiIsVirtualCardA1","#virtualChannelA1");
+		$(".fruit").hide();
+		var describeA = $("#productDescribe1").val();
+ 		$("#showDescribe1").prepend(describeA);
+	} */
+
+/* 
+	$("#hascard>label").addClass("cheadckss");
+	$("#numcard>label").addClass("domduj");
+	$(".shitif").addClass("nospam");
+	$(".shitin").removeClass("nospam");
+	$(".shuzif").removeClass("nospam");
+	$(".shuzin").addClass("nospam");
+	$("#hascard>label").click(function(){
+		$(".shitif").addClass("nospam");
+		$(".shitin").removeClass("nospam");
+		$(".shuzif").removeClass("nospam");
+		$(".shuzin").addClass("nospam");
+		$("#numcardin").attr('checked',false);
+		$("#hascardin").attr('checked',true);
+		$("#hascard>label").removeClass("domduj").addClass("cheadckss");
+		$("#numcard>label").removeClass("cheadckss").addClass("domduj");
+	})
+	$("#numcard>label").click(function(){
+		$(".shitin").addClass("nospam");
+		$(".shitif").removeClass("nospam");
+		$(".shuzin").removeClass("nospam");
+		$(".shuzif").addClass("nospam");
+	
+		$("#numcardin").attr('checked',true);
+		$("#hascardin").attr('checked',false);
+		$("#hascard>label").removeClass("cheadckss").addClass("domduj");
+		$("#numcard>label").removeClass("domduj").addClass("cheadckss");
+	}) */
+	
+	/* $("#ainporder1").click(function() {
+	    $(this).siblings("div").children("span").addClass("active");
+	    $(this).parents("div").siblings("div").find("span").removeClass("active");
+	    appiIsVirtualCardA("#appiIsVirtualCardA1","#virtualChannelA1");
+	    $("#aorder3").hide();
+	    $("#aorder2").hide();
+	    $("#aorder1").fadeIn();
+	    $("#imgr1").show();
+		$("#imgr2").hide();
+		$("#imgr3").hide();
+		$("#appiType").val($("#masterOrSubFlagA1").val());
+		$("#appiTypeCode").val($("#newInTypeCodeA1").val());
+		$("#appiMcVersion").val($("#formVersionA1").val());
+	}); */
+	/* $("#adivorder1").click(function() {
+		appiIsVirtualCardA("#appiIsVirtualCardA1","#virtualChannelA1");
+	    $(".circle").removeClass("active");
+	    $(this).children("span").addClass("active");
+	    $("#aorder3").hide();
+	    $("#aorder2").hide();
+	    $("#aorder1").fadeIn();
+	    $("#imgr1").show();
+		$("#imgr2").hide();
+		$("#imgr3").hide();
+	    $("#appiType").val($("#masterOrSubFlagA1").val());
+		$("#appiTypeCode").val($("#newInTypeCodeA1").val());
+		$("#appiMcVersion").val($("#formVersionA1").val());
+	});
+	 */
+	
+	/* $("#ainporder2").click(function() {
+		appiIsVirtualCardA("#appiIsVirtualCardA2","#virtualChannelA2");
+	    $(this).siblings("div").children("span").addClass("active");
+	    $(this).parents("div").siblings("div").find("span").removeClass("active");
+	    $("#imgr1").hide();
+		$("#imgr2").show();
+		$("#imgr3").hide();
+	    $("#aorder1").hide();
+	    $("#aorder3").hide();
+	    $("#aorder2").fadeIn();
+	    $("#appiType").val($("#masterOrSubFlagA2").val());
+		$("#appiTypeCode").val($("#newInTypeCodeA2").val());
+		$("#appiMcVersion").val($("#formVersionA2").val());
+		
+	}); */
+	/* $("#adivorder2").click(function() {
+		appiIsVirtualCardA("#appiIsVirtualCardA2","#virtualChannelA2");
+		$(".circle").removeClass("active");
+	    $(this).children("span").addClass("active");
+	    $("#imgr1").hide();
+		$("#imgr2").show();
+		$("#imgr3").hide();
+	    $("#aorder1").hide();
+	    $("#aorder3").hide();
+	    $("#aorder2").fadeIn();
+	    $("#appiType").val($("#masterOrSubFlagA2").val());
+		$("#appiTypeCode").val($("#newInTypeCodeA2").val());
+		$("#appiMcVersion").val($("#formVersionA2").val());
+	}); */
+	
+	
+	/* $("#ainporder3").click(function() {
+		appiIsVirtualCardA("#appiIsVirtualCardA3","#virtualChannelA3");
+	    $(this).siblings("div").children("span").addClass("active");
+	    $(this).parents("div").siblings("div").find("span").removeClass("active");
+	    $("#imgr1").hide();
+		$("#imgr2").hide();
+		$("#imgr3").show();
+	    $("#aorder1").hide();
+	    $("#aorder2").hide();
+	    $("#aorder3").fadeIn();
+	    $("#appiType").val($("#masterOrSubFlagA3").val());
+		$("#appiTypeCode").val($("#newInTypeCodeA3").val());
+		$("#appiMcVersion").val($("#formVersionA3").val());
+	}); */
+	/* $("#adivorder3").click(function() {
+		appiIsVirtualCardA("#appiIsVirtualCardA3","#virtualChannelA3");
+		$(".circle").removeClass("active");
+	    $(this).children("span").addClass("active");
+	    $("#imgr1").hide();
+		$("#imgr2").hide();
+		$("#imgr3").show();
+	    $("#aorder1").hide();
+	    $("#aorder2").hide();
+	    $("#aorder3").fadeIn();
+	    $("#appiType").val($("#masterOrSubFlagA3").val());
+		$("#appiTypeCode").val($("#newInTypeCodeA3").val());
+		$("#appiMcVersion").val($("#formVersionA3").val());
+	}); */
+});
+/* function appiIsVirtualCardA(a,v){
+	if($(a).val()=="1" && $(v).val()=="yes"){
+		$("#appiIsVirtualCard").show();
+	}else{
+		$("#appiIsVirtualCard").hide();
+	}
+} */
+</script>
+<style type="text/css">
+/* .shuangka{
+display: none;
+} */
+/* .danka{
+display: none;
+} */
+	/* 	.radio-apply{
+		padding-bottom: 10px;
+	} */
+	/* .labelauty-checked{
+		color:#fff !important;
+		display: inline-block !important;
+	} */
+	/* .labelauty-unchecked{
+		color:#b3b3b3 !important;
+		display: inline-block !important;
+	} */
+	
+	/* .labelauty-unchecked-image{background-image: url( ./apply/images/pc/input-unchecked.png );}
+	.labelauty-checked-image{background-image: url(./apply/images/pc/input-checked.png );}
+	.labelauty-unchecked-image,.labelauty-checked-image{
+	display: inline-block !important;
+	width: 16px;
+	height: 16px;
+	vertical-align: bottom;
+	background-repeat: no-repeat;
+	background-position: left center;
+	} */
+	/* .labelauty{
+	display:none !important;
+	}
+	.labelauty>lable{
+	display: table;
+	font-size: 11px;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+	} */
+	/* .cheadckss{
+		background-color: #b50029 !important;
+		color: #ffffff;
+	} */
+	/* .domduj{
+	background-color: #efefef !important;
+	color: #b3b3b3;
+	} */
+	/* .nospam{
+	display:none !important;
+	} */
+	/* 单选框样式 */
+	/* .fruit{display:none}
+	.fruit:before { content: ""; display: table; }
+
+	.fruit:after { content: ""; display: table; clear: both; }
+	
+	.fruit > div { position: relative; margin-left: 50px;margin-top:20px}
+	
+	.fruit > div:last-child { margin-right: 0; }
+	
+	.fruit label { display: block; width: 240px;cursor: pointer;margin-top:10px;padding-top:5px; }
+	
+	.fruit input { z-index: 3; display: block; opacity: 0; position: absolute; top: 0; bottom: 0; left: 50px; margin: auto; width: 0px; height: 0px; cursor: pointer; }
+	
+	.fruit .user-defined { z-index: 2; position: absolute; top: 0; bottom: 0; right: 50px; margin: auto; width: 20px; height: 20px; border: 1px solid #b50029; border-radius: 50%; cursor: pointer; }
+	
+	.fruit .user-defined span.circle  { display: block; width: 14px; height: 14px; margin-top: 2px; margin-left: 2px; background-color: transparent; border-radius: 50%; }
+	
+	.fruit .user-defined span.active  { background-color: #b50029; } */
+	
+	
+	/* 单选框样式 */
+</style>
+</head>
+<body>
+<form id="goDetail_form" action="./apply/pc/mainAppi/showIdentity" method="post">
+<input type="hidden" id="appiType"  name="appiType" value="1"/>
+
+<input type="hidden" id="newInTypeCode" name="appiTypeCode" value="296c83c6cbb521b7391546c68552694522b0f1f95d7fe9e5aabf9924992c3d45c31aaea978eafd5f7ee4d3f86581d3e2dbe13ff0e9cc31562128e5378bef4ddab507cdb63537e3cba154382abbda491f77dea120477da5965d306b1fa6010acd67eba7c19ee096a90909b0aac6935767469ca5b481702afe78150b06663ce70c"/>
+<input type="hidden" id="appiMcVersion" name="appiMcVersion" value="GPB1A"/>
+<div class="container">
+  <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12">
+	<div class="hotCard">
+	   <div class="row">
+	     <div class="col-md-10 col-sm-9 col-xs-9" style="padding-left:15px;">
+	     	<img class="cardLogo" src="./apply/images/pc/logo_card.png" />
+	     	<span class="hot">卡片介绍</span>
+	     </div>
+	     <div class="col-md-2 col-sm-3 col-xs-3 right-btn">
+	     	<a class="btn btn-bank pull-right" href="./apply/pc/product/familyHappy/family?rp=12&page=1">
+        		重 选 卡 片
+	        </a>
+	     </div>
+	   </div>
+	</div>
+
+     <div class="detail_box">
+       	<div class="col-md-5 col-sm-5 col-xs-12" style="padding-left:0;padding-bottom:20px;">
+	       	<div class="card-img-box" id="card-img-warp">
+	       		
+	            	
+	           		<div align="center" class="card-img-content active">
+	           			<img src="/product_image/pc/1564360448925.jpg" class=""/>
+	           			
+	           		</div>
+           		   
+	       	</div>
+	       	
+	       	
+          	
+           
+         	<!-- <div align="center" class="radio-apply" id="appiIsVirtualCard">
+	           <label style="padding-right: 15px;">
+		           <li id="hascard">
+		           		<input type="radio" id="hascardin" name="appiIsVirtualCard" class="labelauty" value="001" Checked>
+		           		<label for="hascardin" class="" style="display: none;">
+							<span class="labelauty-unchecked-image shitif " style="display: none;"></span>
+							<span class="labelauty-unchecked shitif " style="display: none;">实体卡</span>
+							<span class="labelauty-checked-image shitin" style="display: none;"></span>
+							<span class="labelauty-checked shitin" style="display: none;">实体卡</span>
+						</label>
+		           </li>
+	           </label>
+	           <label style="padding-left: 15px;">
+		           <li id="numcard">
+		           		<input type="radio" id="numcardin" name="appiIsVirtualCard" class="labelauty" value="002">
+		           		<label for="numcardin" class=""  style="display: none;">
+							<span class="labelauty-unchecked-image shuzif" style="display: none;"></span>
+							<span class="labelauty-unchecked shuzif" style="display: none;">数字卡</span>
+							<span class="labelauty-checked-image shuzin " style="display: none;"></span>
+							<span class="labelauty-checked shuzin" style="display: none;">数字卡</span>
+						</label>
+		           </li>
+	           </label>
+           </div> -->
+
+          
+           <div class="col-md-6 col-sm-6 col-xs-10">
+				<p id="message" style="color:#b50029"></p>
+		   </div>
+           <div align="center" style="padding-top: 20px;" class="card-apply">
+				<input type="button" class="btn btn-bank" onclick="applyProduct();" value="立即申请"/>
+           </div>
+       </div>
+       
+       	<div class="col-md-7 col-sm-7 col-xs-12">
+		       <div class="row" id="card-describe-box">
+		       		
+		       			<div class="card-describe active" id="aorder1">
+				           <div class="card_name">Visa东京奥运主题卡吉祥物版
+				           		<span class="triangle"></span>
+				           </div>
+				           <div class="card_introduce">
+				                <div class="card_intro_title">卡片介绍</div>
+				                <div class="Scroller-Container">
+				                	<input type="hidden" class="product-description-hide" value = "★东京奥运会信用卡专属礼遇：（1）多角度体验日本风情，凡持中国大陆地区发行Visa信用卡通过Relux预订京都日式旅馆和酒店，立享92折。（2）近距离欣赏岚山美妙风景，使用Visa支付享受97折特别优惠，体验京都岚山70分钟人力车之旅。（3）Tastytrip为持卡人提供专业旅行顾问，为您精选出日本当地包括米其林在内的餐厅以及其它当地旅行服务，滑雪，潜水等户外体验。让访日观光客在不会日语的情况下也能在网上简单，快速预约，购买旅行商品。（4）打包带回日式风尚：LOTTE DUTY FREE可享85-95折优惠，Yodobashi Camera可享97-95折优惠，Premium Outlets可享专属折扣并获赠特别礼品。&lt;br /&gt;
+上述权益详情请见 “Visa中国”公众号—乐享海外—目的地精选—日本；活动期限及内容变动请以Visa公布为准。&lt;br /&gt;
+★境外消费返现10%。2019年11月1日至2020年3月31日，每个自然月内，凡持中国银行Visa标识个人信用卡，在境外（含中国香港、中国澳门、中国台湾）不限时段、不限地区通过卡组织网络消费（含网上交易），单笔满等值600元人民币的交易达到5笔，当月所有满等值600元的交易均可获10%的返现奖励，每客户每月最高返现不超过等值600元人民币。活动名额有限、先到先得。活动需要报名参加。&lt;br /&gt;
+★2020年12月31日前申请免年费&lt;br /&gt;" />
+				                	<p class="product-description-show"></p>
+				                	<div id="showDescribe1" class="ffont"></div>
+								</div>
+				           </div>
+	          			</div> 
+		       		
+		       		<div class="tiShi ml15">
+				         (如果您已持有中国银行信用卡，我们将为您提供更加快捷，简便的申请流程)
+				    </div>
+		       </div>
+		</div>
+     </div>
+     <div class="line_5 col-sm-12"></div>
+  </div>
+
+</div>
+</form>
+
+
+<div class="common_footer_box">
+<div class="container">
+<div class="text-center" style="margin-top:10px;"><span style="color:#b50029;font-size:14px;;">温馨提示：为避免系统兼容性问题导致申请页面显示异常，建议您使用IE8、IE9、Chrome浏览器。</span></div>
+	<div class="col-md-6 col-md-offset-3" align="center">
+		<div class="common_footer">
+			<div class="row a1">
+				<label><img src="./apply/images/pc/phone_icon.png" />信用卡24小时专线</label><span class='phoneMb'>40066&nbsp;95566</span>
+			</div>
+			<div class="row a2">
+				<a target="_blank" href="http://www.boc.cn/custserv/cs1/200812/t20081209_135605.html">网站地图</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="http://www.boc.cn/custserv/cs1/200812/t20081209_135606.html">版权声明</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="http://www.boc.cn/custserv/cs1/200812/t20081209_135607.html">使用条款</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="http://www.boc.cn/custserv/cs1/200812/t20081212_257687.html">联系我们</a>&nbsp;&nbsp;
+			</div>
+			<div class="row common_copyright">
+			Copyright © BANK OF CHINA(BOC) ALL Rights RESERVED. 
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+</body>
+</html>

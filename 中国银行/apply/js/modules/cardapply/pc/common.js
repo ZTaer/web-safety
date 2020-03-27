@@ -1,0 +1,1 @@
+var contextUrl = "/apply/";
